@@ -31,13 +31,13 @@ export default class Refrigerator extends baseDevice {
     this.serviceLabel = accessory.getService(ServiceLabel) || accessory.addService(ServiceLabel, device.name);
     this.serviceLabel.setCharacteristic(Characteristic.ServiceLabelNamespace, Characteristic.ServiceLabelNamespace.DOTS);
 
-    this.serviceFridge = this.createThermostat('Fridge', 'fridgeTemp');
+    /*this.serviceFridge = this.createThermostat('Fridge', 'fridgeTemp');
     this.serviceFridge.updateCharacteristic(Characteristic.TargetTemperature, this.Status.fridgeTemperature);
     this.serviceFridge.addLinkedService(this.serviceLabel);
 
     this.serviceFreezer = this.createThermostat('Freezer', 'freezerTemp');
     this.serviceFreezer.updateCharacteristic(Characteristic.TargetTemperature, this.Status.freezerTemperature);
-    this.serviceFreezer.addLinkedService(this.serviceLabel);
+    this.serviceFreezer.addLinkedService(this.serviceLabel);*/
 
     // Door open state
     this.serviceDoorOpened = accessory.getService(ContactSensor) || accessory.addService(ContactSensor, 'Refrigerator Door Closed');
@@ -77,9 +77,9 @@ export default class Refrigerator extends baseDevice {
 
     const {Characteristic} = this.platform;
 
-    this.serviceFreezer.updateCharacteristic(Characteristic.CurrentTemperature, this.Status.freezerTemperature);
+    /*this.serviceFreezer.updateCharacteristic(Characteristic.CurrentTemperature, this.Status.freezerTemperature);
 
-    this.serviceFridge.updateCharacteristic(Characteristic.CurrentTemperature, this.Status.fridgeTemperature);
+    this.serviceFridge.updateCharacteristic(Characteristic.CurrentTemperature, this.Status.fridgeTemperature);*/
 
     const contactSensorValue = this.Status.isDoorClosed ?
       Characteristic.ContactSensorState.CONTACT_DETECTED : Characteristic.ContactSensorState.CONTACT_NOT_DETECTED;
